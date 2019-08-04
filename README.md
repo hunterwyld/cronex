@@ -2,7 +2,7 @@
 cronex(**cron** **ex**plainer) is a simple explainer for cron expressions. It is a handy tool to get the next a few trigger times according to the input cron expression.
 
 ### Usage
-Download executable [here]((https://github.com/hunterwyld/cronex/releases/download/v1.0.0/cronex-1.0.0.tar.gz)) and extract tar file
+Download executable [here](https://github.com/hunterwyld/cronex/releases/download/v1.0.0/cronex-1.0.0.tar.gz) and extract tar file
 
 `cd bin`
 
