@@ -1,5 +1,6 @@
 package com.wanghao;
 
+import com.wanghao.exception.InvalidCronException;
 import com.wanghao.util.ParseUtil;
 
 import java.text.SimpleDateFormat;
@@ -13,18 +14,28 @@ import java.util.List;
  * @date 5/30/19 7:47 PM
  */
 public class Main {
-    public static void main(String[] args) throws Exception {
-        long start = System.currentTimeMillis()/1000;
-        //args[0]
-        String input = "0 15 20 3 FEB/2 ?";
-        //args[1]
-        int count = 3;
-        Cron cron = ParseUtil.parse(input);
-        System.out.println(cron);
+    public static void main(String[] args) {
+        if (args.length != 2) {
+            throw new IllegalArgumentException("illegal number of arguments");
+        }
+        String input = args[0];
+        int count = Integer.parseInt(args[1]);
+
+        if (count > 10) {
+            throw new IllegalArgumentException("invalid count: " + count);
+        }
+
+        //String input = "0 15 20 3 FEB/2 ?";
+        //int count = 3;
+        Cron cron;
+        try {
+            cron = ParseUtil.parse(input);
+        } catch (InvalidCronException e) {
+            throw new IllegalArgumentException("invalid cron expression: " + input);
+        }
+        //System.out.println(cron);
         List<String> triggerTimes = getNextTriggerTimes(cron, count);
         System.out.println(triggerTimes);
-        long end = System.currentTimeMillis()/1000;
-        System.out.println(end-start);
     }
 
     /** 获取接下来count次的触发时间 */
