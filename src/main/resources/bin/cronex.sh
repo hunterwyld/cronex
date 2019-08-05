@@ -10,7 +10,10 @@ if [ $# -ne 1 ] && [ $# -ne 3 ]; then
   show_usage
 fi
 
-count="1"
+if [ $# -eq 1 ]; then
+  cron="$1"
+  count="1"
+fi
 
 if [ $# -eq 3 ]; then
   cron="$1"

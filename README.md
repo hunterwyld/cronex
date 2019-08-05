@@ -15,8 +15,8 @@ Usage: ./cronex.sh [CRON_EXPRESSION]
 Optional:  -c <count>          number of trigger times in the future (default: 1)
 ```
 
-- To get next trigger time: `./cronex.sh '0 15 20 3 FEB/2 ?'`
+- To get next trigger time: `./cronex.sh '0 15 20 * * ?'`
 
-- To get next 3 trigger times: `./cronex.sh '0 15 20 3 FEB/2 ?' -c 3`
+- To get next 3 trigger times: `./cronex.sh '0 15 20 * * ?' -c 3`
 
 Note that at most 10 future trigger times may be produced.

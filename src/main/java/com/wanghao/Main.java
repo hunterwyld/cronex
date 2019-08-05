@@ -25,7 +25,7 @@ public class Main {
             throw new IllegalArgumentException("invalid count: " + count);
         }
 
-        //String input = "0 15 20 3 FEB/2 ?";
+        //String input = "*/1 15 20 * * ?";
         //int count = 3;
         Cron cron;
         try {

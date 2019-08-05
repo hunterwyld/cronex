@@ -12,8 +12,8 @@ public enum MonthRegex {
     MONTH(1, "(JAN)|(FEB)|(MAR)|(APR)|(MAY)|(JUN)|(JUL)|(AUG)|(SEP)|(OCT)|(NOV)|(DEC)"),
     BRIDGE_NUMBER(2, "([1-9]|1[0-2])" + "-" + "([1-9]|1[0-2])"),
     BRIDGE_MONTH(3, "((JAN)|(FEB)|(MAR)|(APR)|(MAY)|(JUN)|(JUL)|(AUG)|(SEP)|(OCT)|(NOV)|(DEC))" + "-" + "((JAN)|(FEB)|(MAR)|(APR)|(MAY)|(JUN)|(JUL)|(AUG)|(SEP)|(OCT)|(NOV)|(DEC))"),
-    SLASH_NUMBER(4, "([1-9]|1[0-2])" + "/" + "([1-9]|1[0-2])"),
-    SLASH_MONTH(5, "((JAN)|(FEB)|(MAR)|(APR)|(MAY)|(JUN)|(JUL)|(AUG)|(SEP)|(OCT)|(NOV)|(DEC))" + "/" + "([1-9]|1[0-2])"),
+    SLASH_NUMBER(4, "(([1-9]|1[0-2])|(\\*))?" + "/" + "([1-9]|1[0-2])"),
+    SLASH_MONTH(5, "(((JAN)|(FEB)|(MAR)|(APR)|(MAY)|(JUN)|(JUL)|(AUG)|(SEP)|(OCT)|(NOV)|(DEC))|(\\*))?" + "/" + "([1-9]|1[0-2])"),
     COMMA_NUMBER(6, "([1-9]|1[0-2])" + "(," + "([1-9]|1[0-2])" + ")+"),
     COMMA_MONTH(7, "((JAN)|(FEB)|(MAR)|(APR)|(MAY)|(JUN)|(JUL)|(AUG)|(SEP)|(OCT)|(NOV)|(DEC))" + "(," + "((JAN)|(FEB)|(MAR)|(APR)|(MAY)|(JUN)|(JUL)|(AUG)|(SEP)|(OCT)|(NOV)|(DEC))" + ")+"),
     STAR(8, "\\*");

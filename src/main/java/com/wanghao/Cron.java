@@ -16,6 +16,7 @@ import com.wanghao.regex.MonthRegex;
 import com.wanghao.regex.SecondRegex;
 import com.wanghao.regex.YearRegex;
 import com.wanghao.util.DateUtil;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -124,7 +125,7 @@ public class Cron {
             match = second <= max && second >= min;
         } else if (secondRegex.equals(SecondRegex.SLASH)) {
             String[] arr = secondValue.split("/");
-            int left = Integer.parseInt(arr[0]);
+            int left = StringUtils.equals(arr[0], "")||StringUtils.equals(arr[0], "*") ? 0 : Integer.parseInt(arr[0]);
             int right = Integer.parseInt(arr[1]);
             Set<Integer> possible = new HashSet<>();
             int start = left;
@@ -165,7 +166,7 @@ public class Cron {
             match = minute <= max && minute >= min;
         } else if (minuteRegex.equals(MinuteRegex.SLASH)) {
             String[] arr = minuteValue.split("/");
-            int left = Integer.parseInt(arr[0]);
+            int left = StringUtils.equals(arr[0], "")||StringUtils.equals(arr[0], "*") ? 0 : Integer.parseInt(arr[0]);
             int right = Integer.parseInt(arr[1]);
             Set<Integer> possible = new HashSet<>();
             int start = left;
@@ -206,7 +207,7 @@ public class Cron {
             match = hour <= max && hour >= min;
         } else if (hourRegex.equals(HourRegex.SLASH)) {
             String[] arr = hourValue.split("/");
-            int left = Integer.parseInt(arr[0]);
+            int left = StringUtils.equals(arr[0], "")||StringUtils.equals(arr[0], "*") ? 0 : Integer.parseInt(arr[0]);
             int right = Integer.parseInt(arr[1]);
             Set<Integer> possible = new HashSet<>();
             int start = left;
@@ -247,7 +248,7 @@ public class Cron {
             match = dayOfMonth <= max && dayOfMonth >= min;
         } else if (dayOfMonthRegex.equals(DayOfMonthRegex.SLASH)) {
             String[] arr = dayOfMonthValue.split("/");
-            int left = Integer.parseInt(arr[0]);
+            int left = StringUtils.equals(arr[0], "")||StringUtils.equals(arr[0], "*") ? 1 : Integer.parseInt(arr[0]);
             int right = Integer.parseInt(arr[1]);
             Set<Integer> possible = new HashSet<>();
             int start = left;
@@ -316,7 +317,7 @@ public class Cron {
             match = month <= max && month >= min;
         } else if (monthRegex.equals(MonthRegex.SLASH_NUMBER)) {
             String[] arr = monthValue.split("/");
-            int left = Integer.parseInt(arr[0]);
+            int left = StringUtils.equals(arr[0], "")||StringUtils.equals(arr[0], "*") ? 1 : Integer.parseInt(arr[0]);
             int right = Integer.parseInt(arr[1]);
             Set<Integer> possible = new HashSet<>();
             int start = left;
@@ -327,7 +328,7 @@ public class Cron {
             match = possible.contains(month);
         } else if (monthRegex.equals(MonthRegex.SLASH_MONTH)) {
             String[] arr = monthValue.split("/");
-            int left = DateUtil.getMonthByName(arr[0]);
+            int left = StringUtils.equals(arr[0], "")||StringUtils.equals(arr[0], "*") ? 1 : DateUtil.getMonthByName(arr[0]);
             int right = Integer.parseInt(arr[1]);
             Set<Integer> possible = new HashSet<>();
             int start = left;
@@ -388,7 +389,7 @@ public class Cron {
             match = dayOfWeek <= max && dayOfWeek >= min;
         } else if (dayOfWeekRegex.equals(DayOfWeekRegex.SLASH_NUMBER)) {
             String[] arr = dayOfWeekValue.split("/");
-            int left = Integer.parseInt(arr[0]);
+            int left = StringUtils.equals(arr[0], "")||StringUtils.equals(arr[0], "*") ? 1 : Integer.parseInt(arr[0]);
             int right = Integer.parseInt(arr[1]);
             Set<Integer> possible = new HashSet<>();
             int start = left;
@@ -399,7 +400,7 @@ public class Cron {
             match = possible.contains(dayOfWeek);
         } else if (dayOfWeekRegex.equals(DayOfWeekRegex.SLASH_DAY)) {
             String[] arr = dayOfWeekValue.split("/");
-            int left = DateUtil.getDayByName(arr[0]);
+            int left = StringUtils.equals(arr[0], "")||StringUtils.equals(arr[0], "*") ? 1 : DateUtil.getDayByName(arr[0]);
             int right = Integer.parseInt(arr[1]);
             Set<Integer> possible = new HashSet<>();
             int start = left;
@@ -477,7 +478,7 @@ public class Cron {
             match = year <= max && year >= min;
         } else if (yearRegex.equals(YearRegex.SLASH)) {
             String[] arr = yearValue.split("/");
-            int left = Integer.parseInt(arr[0]);
+            int left = StringUtils.equals(arr[0], "")||StringUtils.equals(arr[0], "*") ? 1970 : Integer.parseInt(arr[0]);
             int right = Integer.parseInt(arr[1]);
             Set<Integer> possible = new HashSet<>();
             int start = left;
