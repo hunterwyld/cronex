@@ -11,7 +11,7 @@ Run `./cronex.sh` as the following example shows
 e.g.:
 
 ```bash
-USAGE: /home/wanghao/IdeaProjects/cronex/src/main/resources/bin/cronex.sh <OPTIONS> <CRON EXPRESSION>
+USAGE: ./cronex.sh <OPTIONS> <CRON EXPRESSION>
 OPTIONS:  -c <COUNT>          [optional] number of trigger times in the future (default: 1)
           -s <START DATE>     [optional] start date of calculation (pattern: yyyy-MM-dd HH:mm:ss, default: 'now()')
 ```
